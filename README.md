@@ -1,7 +1,5 @@
-# SQL--Retail-Data-Analysis
-Certainly! Here's a full **project overview** written from your perspective as the project creator:
 
----
+
 
 # SQL Retail Data Analysis
 
