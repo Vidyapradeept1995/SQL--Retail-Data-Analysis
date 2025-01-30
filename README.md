@@ -45,18 +45,25 @@ In this project, I focus on practical, real-world use cases that can directly im
 Some of the queries and analyses I performed in this project include:
 - **Top-Selling Products**: By aggregating sales data, I was able to identify the products with the highest sales.
   ```sql
-  SELECT product_name, SUM(sales_amount) AS total_sales
-  FROM sales
-  GROUP BY product_name
-  ORDER BY total_sales DESC;
-  ```
+ 
+Select product_id, sum(sales_value) tot_sales
+from transaction_d 
+Group by product_id
+order by tot_sales Desc
 
-- **Customer Spending Segmentation**: I created customer segments based on their spending patterns to help businesses understand who their high-value customers are.
+**###Department-wise sales**: Measure the sales value by department (in the Product table) to understand which departments contribute most to revenue.
+
+select p.department,sum(t.sales_value) as tot
+from product p Join Transaction_d t on p.product_id=t.product_id
+Group by p.department
+  
+
+- **Customer Spending Segmentation**: I created Household segments based on their spending patterns to help businesses understand who their high-value customers are.
   ```sql
-  SELECT customer_id, COUNT(order_id) AS total_orders, SUM(order_value) AS total_spent
-  FROM orders
-  GROUP BY customer_id
-  HAVING total_spent > 1000
+SELECT Household_key, COUNT(product_id) AS total_orders, SUM(sales_value) AS total_spent
+  FROM Transaction_d
+  GROUP BY Household_key
+  HAVING SUM(sales_value) > 1000
   ORDER BY total_spent DESC;
   ```
 
