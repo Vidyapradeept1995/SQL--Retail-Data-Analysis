@@ -65,6 +65,8 @@ SELECT Household_key, COUNT(product_id) AS total_orders, SUM(sales_value) AS tot
   GROUP BY Household_key
   HAVING SUM(sales_value) > 1000
   ORDER BY total_spent DESC;
+
+  
   ```
 
 
